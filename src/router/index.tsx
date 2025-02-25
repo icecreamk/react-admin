@@ -1,4 +1,4 @@
-import { createHashRouter, Navigate } from "react-router-dom";
+import { Navigate, useRoutes } from "react-router-dom";
 import Login from "@/views/Login";
 import NotFound from "@/views/NotFound";
 
@@ -25,4 +25,7 @@ const routers = [
   },
 ];
 
-export default createHashRouter(routers)
+export default function Router() {
+  return useRoutes(routers)
+}
+
