@@ -1,4 +1,4 @@
-import { Navigate, useRoutes } from "react-router-dom";
+import { createBrowserRouter, Navigate, useRoutes } from "react-router-dom";
 import Login from "@/views/Login";
 import NotFound from "@/views/NotFound";
 import Home from "@/views/Home";
@@ -6,7 +6,8 @@ import Home from "@/views/Home";
 const routers = [
   {
     path: '/',
-    element: <Home />,
+    Component: Home,
+    children: []
   },
   {
     path: '/login',

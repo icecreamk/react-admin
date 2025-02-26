@@ -7,3 +7,6 @@
 - react-router-dom
 
 
+### store
+- resso
+- zustand
