@@ -1,11 +1,12 @@
 import { Navigate, useRoutes } from "react-router-dom";
 import Login from "@/views/Login";
 import NotFound from "@/views/NotFound";
+import Home from "@/views/Home";
 
 const routers = [
   {
     path: '/',
-    element: <div>Hello World</div>,
+    element: <Home />,
   },
   {
     path: '/login',
