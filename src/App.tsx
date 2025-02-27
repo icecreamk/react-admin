@@ -1,13 +1,14 @@
-import { BrowserRouter } from 'react-router-dom'
-import Router from './router'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { ConfigProvider } from 'antd'
+import { routers } from './router'
 import './App.css'
 
 function App() {
 
   return (
-    <BrowserRouter>
-      <Router />
-    </BrowserRouter>
+    <ConfigProvider>
+      <RouterProvider router={createBrowserRouter(routers)} />
+    </ConfigProvider>
   )
 }
 

@@ -1,33 +1,33 @@
-import { createBrowserRouter, Navigate, useRoutes } from "react-router-dom";
-import Login from "@/views/Login";
-import NotFound from "@/views/NotFound";
-import Home from "@/views/Home";
+import { lazy } from "react";
+import { buildRoutes, RouteConfig } from "./utils";
 
-const routers = [
+export const routeConfig: RouteConfig[] = [
   {
-    path: '/',
-    Component: Home,
-    children: []
+    element: lazy(() => import('@/layouts/BasicLayout')),
+    children: [
+      {
+        path: '/',
+        element: lazy(() => import('@/views/Home')),
+      },
+      {
+        path: '/about',
+        element: lazy(() => import('@/views/About')),
+      },
+      // {
+      //   path: '/user',
+      //   element: lazy(() => import('@/views/User')),
+      // },
+      {
+        path: '/404',
+        element: lazy(() => import('@/views/NotFound')),
+      },
+    ]
   },
   {
     path: '/login',
-    element: <Login />,
+    element: lazy(() => import('@/views/Login')),
   },
-  {
-    path: '*',
-    element: <Navigate to='/404' />,
-  },
-  {
-    path: '/404',
-    element: <NotFound />,
-  },
-  {
-    path: '/403',
-    element: <div>403</div>,
-  },
+
 ];
 
-export default function Router() {
-  return useRoutes(routers)
-}
-
+export const routers = buildRoutes(routeConfig)
